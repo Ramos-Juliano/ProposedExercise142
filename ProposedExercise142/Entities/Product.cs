@@ -17,12 +17,11 @@ namespace ProposedExercise142.Entities
             Name = name;
             Price = price;
         }
-
         
 
         public virtual string PriceTag()
         {
-            return  "Price" + Price.ToString("F2",CultureInfo.InvariantCulture);
+            return  Name +" $ "+ Price.ToString("F2",CultureInfo.InvariantCulture);
         }
     }
 }
