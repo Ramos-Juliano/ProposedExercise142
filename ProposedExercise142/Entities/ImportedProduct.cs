@@ -4,7 +4,7 @@ namespace ProposedExercise142.Entities
 {
     class ImportedProduct : Product
     {
-        public double CunstomsFee { get; set; }
+        public double CustomsFee { get; set; }
 
         public ImportedProduct() 
         {
@@ -13,18 +13,23 @@ namespace ProposedExercise142.Entities
 
         public ImportedProduct(string name, double price,double cunstomsFee) :base (name, price)
         {            
-            CunstomsFee = cunstomsFee;
+            CustomsFee = cunstomsFee;
         }
 
         public double TotalPrice()
         {
-            return Price + CunstomsFee;
+            return Price + CustomsFee;
         }
 
         public override string PriceTag()
         {
-            return Name + " $ " + TotalPrice().ToString("F2", CultureInfo.InvariantCulture) + "(Customs fee: $" + CunstomsFee.ToString("F2", CultureInfo.InvariantCulture);
-        }        
+            return Name
+                + " $ "
+                + TotalPrice().ToString("F2", CultureInfo.InvariantCulture)
+                + " (Customs fee: $ "
+                + CustomsFee.ToString("F2", CultureInfo.InvariantCulture)
+                + ")";
+        }
 
     }
 
